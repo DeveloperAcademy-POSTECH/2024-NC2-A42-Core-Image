@@ -9,6 +9,7 @@ import SwiftUI
 import CoreImage
 import CoreImage.CIFilterBuiltins
 
+// 필터가 적용된 이미지 하나를 보여주고, 저장할 수 있는 뷰
 struct SingleImageView: View {
     @Binding var filter: FilterModel
     private let context = CIContext()
@@ -22,8 +23,11 @@ struct SingleImageView: View {
                 .scaledToFit()
                 .frame(width: 350)
             
-            Button("Save to Album") {
+            Button {
                 UIImageWriteToSavedPhotosAlbum(UIImage(cgImage: cgImage), self, nil, nil);
+            } label: {
+                // 버튼 디자인
+                Text("Save to Album")
             }
             .padding()
             

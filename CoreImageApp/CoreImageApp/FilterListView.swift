@@ -15,6 +15,8 @@ struct FilterModel: Identifiable, Hashable {
     var title: String
 }
 
+// 필터 목록 (새로운 필터는 여기에 추가하면 됨)
+// get으로 시작하는 이름의 필터 적용하는 함수 만들고, getfilterList() 함수에서 if let ~ 부분 추가
 extension UIImage {
     func getfilterList() -> [FilterModel] {
         var result: [FilterModel] = []
@@ -82,7 +84,7 @@ extension UIImage {
     }
 }
 
-// 메인 뷰
+// 선택된 이미지에 각 필터별로 적용된 모습을 보여주는 화면
 struct FilterListView: View {
     var selectedImage: UIImage
     @State private var filterList: [FilterModel] = []
@@ -97,25 +99,28 @@ struct FilterListView: View {
                 
                 ForEach($filterList) { $filter in
                     VStack {
+                        // 각 이미지를 누르면 상세 화면으로 이동
                         NavigationLink {
                             SingleImageView(filter: $filter)
                         } label: {
+                            
                             if let outputImage = filter.filter.outputImage, let cgImage = context.createCGImage(outputImage, from: outputImage.extent) {
-                                
+                                // 디자인
                                 Image(uiImage: UIImage(cgImage: cgImage))
                                     .resizable()
                                     .scaledToFill()
                                     .frame(width: 150)
                             }
                         }
+                        // 일단 텍스트는 터치 영역에서 제외시켜두었음 ...
                         Text("\(filter.title)")
                     }
                 }
             }
         }
         .onAppear {
-                    self.filterList = selectedImage.getfilterList()
-                }
+            self.filterList = selectedImage.getfilterList()
+        }
     }
 }
 
