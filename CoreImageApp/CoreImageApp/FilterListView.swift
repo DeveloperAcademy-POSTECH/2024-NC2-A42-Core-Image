@@ -29,10 +29,10 @@ extension UIImage {
             result.append(FilterModel(filter: photoEffectChorme, title: "photo effect chrome"))
         }
         
-        // 필터가 잘 작동하지 않아서 일단 뺌
-        //        if let bumpDistortion = getBumpDistortion(self) {
-        //            result.append(FilterModel(filter: bumpDistortion, title: "bump distortion"))
-        //        }
+        
+        if let bumpDistortion = getBumpDistortion(self) {
+            result.append(FilterModel(filter: bumpDistortion, title: "bump distortion"))
+        }
         
         if let colorCrossPolynomial = getColorCrossPolynomial(self) {
             result.append(FilterModel(filter: colorCrossPolynomial, title: "color cross polynomial"))
@@ -42,13 +42,29 @@ extension UIImage {
             result.append(FilterModel(filter: comicEffect, title: "comic effect"))
         }
         
-        return result
+        if let convolution9Vertical = getConvolution9Vertical(self) {
+            result.append(FilterModel(filter: convolution9Vertical, title: "convolution 9 vertical"))
+        }
+        
+        if let bloom = getBloom(self) {
+            result.append(FilterModel(filter: bloom, title: "bloom"))
+        }
+        
+        if let photoeffecttransfer = getPhotoEffectTransfer(self) {
+            result.append(FilterModel(filter: photoeffecttransfer, title: "photo effect transfer"))
+        }
+        
+        if let photoeffecttonal = getPhotoEffectTonal(self) {
+            result.append(FilterModel(filter: photoeffecttonal, title: "photo effect tonal"))
+        }
+        
+          return result
     }
     
     private func getSepiatone(_ image: UIImage) -> CIFilter? {
         let filter = CIFilter.sepiaTone()
         filter.inputImage = CIImage(image: image)
-        filter.intensity = 0.8
+        filter.intensity = 0.5
         return filter
     }
     
@@ -62,8 +78,8 @@ extension UIImage {
         let filter = CIFilter.bumpDistortion()
         filter.inputImage = CIImage(image: image)
         filter.center = CGPoint(x: image.size.width/2, y: image.size.height/2)
-        filter.radius = 120.00
-        filter.scale = 0.5
+        filter.radius = Float(image.size.width)/2.0
+        filter.scale = 0.7
         return filter
     }
     
@@ -78,6 +94,38 @@ extension UIImage {
     
     private func getComicEffect(_ image: UIImage) -> CIFilter? {
         let filter = CIFilter.comicEffect()
+        filter.inputImage = CIImage(image: image)
+        
+        return filter
+    }
+    
+    private func getConvolution9Vertical(_ image: UIImage) -> CIFilter? {
+        let filter = CIFilter.convolution9Vertical()
+        filter.inputImage = CIImage(image: image)
+        filter.weights = CIVector(values: [1.2, -1.3, 1, 0, 1, 0, -1, 1, -1], count: 9)
+        filter.bias = 0.0
+        
+        return filter
+    }
+    
+    private func getBloom(_ image: UIImage) -> CIFilter? {
+        let filter = CIFilter.bloom()
+        filter.inputImage = CIImage(image: image)
+        // filter.radius = 10.00
+        //filter.intensity = 1
+        
+        return filter
+    }
+    
+    private func getPhotoEffectTransfer(_ image: UIImage) -> CIFilter? {
+        let filter = CIFilter.photoEffectTransfer()
+        filter.inputImage = CIImage(image: image)
+        
+        return filter
+    }
+    
+    private func getPhotoEffectTonal(_ image: UIImage) -> CIFilter? {
+        let filter = CIFilter.photoEffectTonal()
         filter.inputImage = CIImage(image: image)
         
         return filter
