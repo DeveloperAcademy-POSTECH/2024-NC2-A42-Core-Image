@@ -24,7 +24,7 @@ struct PhotoPickView: View {
                 // 버튼 디자인
                     Text("사진 선택하기")
                 }
-                .onChange(of: selectedItem) { newItem, _ in
+                .onChange(of: selectedItem) { _, newItem in
                     Task {
                         if let data = try? await newItem?.loadTransferable(type: Data.self) {
                             selectedImageData = data
