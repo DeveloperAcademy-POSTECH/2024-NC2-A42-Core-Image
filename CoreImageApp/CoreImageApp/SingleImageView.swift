@@ -43,7 +43,7 @@ struct SingleImageView: View {
         return AnyView(Text("이미지를 불러올 수 없습니다."))
     }
     
-    var filter = FilterModel(filter: CIFilter.sepiaTone(), title: "Sepia Tone")
+    let filter = FilterModel(filter: CIFilter.sepiaTone(), title: "Sepia Tone")
     filter.filter.setValue(ciImage, forKey: kCIInputImageKey)
     filter.filter.setValue(0.8, forKey: kCIInputIntensityKey)
     
