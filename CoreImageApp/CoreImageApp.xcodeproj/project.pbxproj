@@ -14,6 +14,8 @@
 		D60DEC042C21C70C00FBB141 /* PhotoPickView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60DEC032C21C70C00FBB141 /* PhotoPickView.swift */; };
 		D60DEC062C21C72300FBB141 /* FilterListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60DEC052C21C72300FBB141 /* FilterListView.swift */; };
 		D60DEC082C21C73500FBB141 /* SingleImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60DEC072C21C73500FBB141 /* SingleImageView.swift */; };
+		D60DEC0A2C21FD3F00FBB141 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60DEC092C21FD3F00FBB141 /* ImagePicker.swift */; };
+		D60DEC0C2C22027200FBB141 /* pudding.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D60DEC0B2C22027200FBB141 /* pudding.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +27,8 @@
 		D60DEC032C21C70C00FBB141 /* PhotoPickView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickView.swift; sourceTree = "<group>"; };
 		D60DEC052C21C72300FBB141 /* FilterListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterListView.swift; sourceTree = "<group>"; };
 		D60DEC072C21C73500FBB141 /* SingleImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleImageView.swift; sourceTree = "<group>"; };
+		D60DEC092C21FD3F00FBB141 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		D60DEC0B2C22027200FBB141 /* pudding.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pudding.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,9 +65,10 @@
 				D60DEBF72C21C6F300FBB141 /* ContentView.swift */,
 				D60DEC032C21C70C00FBB141 /* PhotoPickView.swift */,
 				D60DEC052C21C72300FBB141 /* FilterListView.swift */,
+				D60DEC072C21C73500FBB141 /* SingleImageView.swift */,
+				D60DEC092C21FD3F00FBB141 /* ImagePicker.swift */,
 				D60DEBF92C21C6F400FBB141 /* Assets.xcassets */,
 				D60DEBFB2C21C6F400FBB141 /* Preview Content */,
-				D60DEC072C21C73500FBB141 /* SingleImageView.swift */,
 			);
 			path = CoreImageApp;
 			sourceTree = "<group>";
@@ -71,6 +76,7 @@
 		D60DEBFB2C21C6F400FBB141 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
+				D60DEC0B2C22027200FBB141 /* pudding.jpg */,
 				D60DEBFC2C21C6F400FBB141 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
@@ -134,6 +140,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D60DEC0C2C22027200FBB141 /* pudding.jpg in Resources */,
 				D60DEBFD2C21C6F400FBB141 /* Preview Assets.xcassets in Resources */,
 				D60DEBFA2C21C6F400FBB141 /* Assets.xcassets in Resources */,
 			);
@@ -149,6 +156,7 @@
 				D60DEC082C21C73500FBB141 /* SingleImageView.swift in Sources */,
 				D60DEC062C21C72300FBB141 /* FilterListView.swift in Sources */,
 				D60DEBF82C21C6F300FBB141 /* ContentView.swift in Sources */,
+				D60DEC0A2C21FD3F00FBB141 /* ImagePicker.swift in Sources */,
 				D60DEC042C21C70C00FBB141 /* PhotoPickView.swift in Sources */,
 				D60DEBF62C21C6F300FBB141 /* CoreImageAppApp.swift in Sources */,
 			);
@@ -287,6 +295,8 @@
 				DEVELOPMENT_TEAM = BSP66D4QHX;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "카메라 좀 빌릴게욤";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "갤러리 가보자고";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -316,6 +326,8 @@
 				DEVELOPMENT_TEAM = BSP66D4QHX;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "카메라 좀 빌릴게욤";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "갤러리 가보자고";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
