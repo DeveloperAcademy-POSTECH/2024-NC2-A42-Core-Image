@@ -100,6 +100,7 @@ struct PhotoPickView: View {
                         .padding(.horizontal, 20)
                         .padding(.vertical, 14)
                     }
+                    
                 }
             }
             .padding(10)
