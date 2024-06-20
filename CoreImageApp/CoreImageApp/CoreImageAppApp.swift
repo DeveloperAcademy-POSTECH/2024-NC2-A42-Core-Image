@@ -11,7 +11,7 @@ import SwiftUI
 struct CoreImageAppApp: App {
     var body: some Scene {
         WindowGroup {
-            PhotoPickView()
+            OnboardingView()
         }
     }
 }

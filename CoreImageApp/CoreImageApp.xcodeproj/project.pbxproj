@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A91FF6512C241C2A00941170 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91FF6502C241C2A00941170 /* OnboardingView.swift */; };
 		D60DEBF62C21C6F300FBB141 /* CoreImageAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60DEBF52C21C6F300FBB141 /* CoreImageAppApp.swift */; };
 		D60DEBF82C21C6F300FBB141 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60DEBF72C21C6F300FBB141 /* ContentView.swift */; };
 		D60DEBFA2C21C6F400FBB141 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D60DEBF92C21C6F400FBB141 /* Assets.xcassets */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A91FF6502C241C2A00941170 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		D60DEBF22C21C6F300FBB141 /* CoreImageApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreImageApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D60DEBF52C21C6F300FBB141 /* CoreImageAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreImageAppApp.swift; sourceTree = "<group>"; };
 		D60DEBF72C21C6F300FBB141 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 		D60DEBF42C21C6F300FBB141 /* CoreImageApp */ = {
 			isa = PBXGroup;
 			children = (
+				A91FF6502C241C2A00941170 /* OnboardingView.swift */,
 				D60DEBF52C21C6F300FBB141 /* CoreImageAppApp.swift */,
 				D60DEBF72C21C6F300FBB141 /* ContentView.swift */,
 				D60DEC032C21C70C00FBB141 /* PhotoPickView.swift */,
@@ -159,6 +162,7 @@
 				D60DEC0A2C21FD3F00FBB141 /* ImagePicker.swift in Sources */,
 				D60DEC042C21C70C00FBB141 /* PhotoPickView.swift in Sources */,
 				D60DEBF62C21C6F300FBB141 /* CoreImageAppApp.swift in Sources */,
+				A91FF6512C241C2A00941170 /* OnboardingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
