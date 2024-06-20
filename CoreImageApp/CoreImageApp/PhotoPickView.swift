@@ -24,43 +24,13 @@ struct PhotoPickView: View {
                     .fontWeight(.bold)
                     .foregroundColor(.black)
                 
-
-                // 선택된 사진 표시
-                HStack {
-                    //물음표 사각형
-                    ZStack {
-                        Rectangle()
-                            .foregroundColor(.clear)
-                            .frame(width: 160, height: 250)
-                            .background(.white)
-                            .shadow(color: .black.opacity(0.15), radius: 7.5, x: 0, y: 2)
-                        
-                        if let selectedImage = selectedImage {
-                            Image(uiImage: selectedImage)
-                                .resizable()
-                                .aspectRatio(contentMode: .fill)
-                                .frame(width: 140, height: 230)
-                                .clipped()
-                        } else {
-                            Text("?")
-                                .font(.system(size: 100))
-                                .foregroundColor(.gray)
-                        }
-                    }
-                    .frame(width: 130, height: 250)
-                }
-                .padding()
-                Spacer()
-                
-                // 선택된 이미지가 있을 시 확인 메세지
-                if selectedImage != nil {
-                    Text("이 사진으로 할까요?")
-                        .font(.body)
-                        .fontWeight(.bold)
-                        .multilineTextAlignment(.center)
-                        .foregroundColor(.black)
-                    
-                    Spacer()
+                //물음표 사각형
+                ZStack {
+                    Rectangle()
+                        .foregroundColor(.clear)
+                        .frame(width: 300, height: 380)
+                        .background(.white)
+                        .shadow(color: .black.opacity(0.15), radius: 7.5, x: 0, y: 2)
                     
                     if let selectedImage = selectedImage {
                         Image(uiImage: selectedImage)
@@ -94,7 +64,6 @@ struct PhotoPickView: View {
                         .padding(.horizontal, 20)
                         .padding(.vertical, 14)
                     }
-
                     .sheet(isPresented: $isImagePickerPresented) {
                         ImagePicker(isPresented: $isImagePickerPresented, selectedImage: $selectedImage)
                     }
@@ -156,7 +125,6 @@ struct PhotoPickView: View {
                 .cornerRadius(12)
                 .disabled(true)
         }
-        
     }
 }
 
