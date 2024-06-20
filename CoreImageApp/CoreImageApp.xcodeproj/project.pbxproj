@@ -17,6 +17,7 @@
 		D60DEC082C21C73500FBB141 /* SingleImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60DEC072C21C73500FBB141 /* SingleImageView.swift */; };
 		D60DEC0A2C21FD3F00FBB141 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60DEC092C21FD3F00FBB141 /* ImagePicker.swift */; };
 		D60DEC0C2C22027200FBB141 /* pudding.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D60DEC0B2C22027200FBB141 /* pudding.jpg */; };
+		D64F3FB22C244D2B00E07D65 /* RotateImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64F3FB12C244D2B00E07D65 /* RotateImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		D60DEC072C21C73500FBB141 /* SingleImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleImageView.swift; sourceTree = "<group>"; };
 		D60DEC092C21FD3F00FBB141 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		D60DEC0B2C22027200FBB141 /* pudding.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pudding.jpg; sourceTree = "<group>"; };
+		D64F3FB12C244D2B00E07D65 /* RotateImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotateImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 				D60DEC052C21C72300FBB141 /* FilterListView.swift */,
 				D60DEC072C21C73500FBB141 /* SingleImageView.swift */,
 				D60DEC092C21FD3F00FBB141 /* ImagePicker.swift */,
+				D64F3FB12C244D2B00E07D65 /* RotateImage.swift */,
 				D60DEBF92C21C6F400FBB141 /* Assets.xcassets */,
 				D60DEBFB2C21C6F400FBB141 /* Preview Content */,
 			);
@@ -162,6 +165,7 @@
 				D60DEC0A2C21FD3F00FBB141 /* ImagePicker.swift in Sources */,
 				D60DEC042C21C70C00FBB141 /* PhotoPickView.swift in Sources */,
 				D60DEBF62C21C6F300FBB141 /* CoreImageAppApp.swift in Sources */,
+				D64F3FB22C244D2B00E07D65 /* RotateImage.swift in Sources */,
 				A91FF6512C241C2A00941170 /* OnboardingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -296,7 +300,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"CoreImageApp/Preview Content\"";
-				DEVELOPMENT_TEAM = Y4NF2XS64C;
+				DEVELOPMENT_TEAM = BSP66D4QHX;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "카메라 좀 빌릴게욤";
@@ -327,7 +331,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"CoreImageApp/Preview Content\"";
-				DEVELOPMENT_TEAM = Y4NF2XS64C;
+				DEVELOPMENT_TEAM = BSP66D4QHX;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "카메라 좀 빌릴게욤";
