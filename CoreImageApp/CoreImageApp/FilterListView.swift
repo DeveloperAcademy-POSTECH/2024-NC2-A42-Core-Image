@@ -149,7 +149,7 @@ struct FilterListView: View {
                     VStack {
                         // 각 이미지를 누르면 상세 화면으로 이동
                         NavigationLink {
-                            SingleImageView(filter: $filter)
+                            SingleImageView(filter: $filter, originalImage: selectedImage)
                         } label: {
                             
                             if let outputImage = filter.filter.outputImage, let cgImage = context.createCGImage(outputImage, from: outputImage.extent) {
