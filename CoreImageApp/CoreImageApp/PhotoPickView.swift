@@ -24,6 +24,7 @@ struct PhotoPickView: View {
                     .fontWeight(.bold)
                     .foregroundColor(.black)
                 
+                // 선택된 사진 표시
                 HStack {
                     ZStack {
                         Rectangle()
@@ -49,6 +50,7 @@ struct PhotoPickView: View {
                 .padding()
                 Spacer()
                 
+                // 선택된 이미지가 있을 시 확인 메세지
                 if selectedImage != nil {
                     Text("이 사진으로 할까요?")
                         .font(.body)
@@ -91,6 +93,7 @@ struct PhotoPickView: View {
                     ImagePicker(isPresented: $isImagePickerPresented, selectedImage: $selectedImage)
                 }
                 
+                // 사진 불러오기 : 갤러리에서 선택하기
                 PhotosPicker(selection: Binding(get: {
                     selectedItem
                 }, set: { newItem in
@@ -125,6 +128,7 @@ struct PhotoPickView: View {
             }
             .padding(40)
         }
+        
     }
 }
 
