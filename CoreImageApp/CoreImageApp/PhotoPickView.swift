@@ -71,7 +71,8 @@ struct PhotoPickView: View {
                     }
                 }
                 
-                Button {
+                // 사진 불러오기 : 카메라로 촬영하기
+                Button{
                     isImagePickerPresented = true
                 } label: {
                     HStack(alignment: .center, spacing: 4) {
@@ -85,6 +86,9 @@ struct PhotoPickView: View {
                     .frame(width: 199, height: 68, alignment: .center)
                     .background(Color(red: 0, green: 0.48, blue: 1))
                     .cornerRadius(12)
+                }
+                .sheet(isPresented: $isImagePickerPresented) {
+                    ImagePicker(isPresented: $isImagePickerPresented, selectedImage: $selectedImage)
                 }
                 
                 PhotosPicker(selection: Binding(get: {
