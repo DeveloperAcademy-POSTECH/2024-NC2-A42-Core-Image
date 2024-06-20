@@ -8,6 +8,7 @@
 import SwiftUI
 import PhotosUI
 
+
 struct PhotoPickView: View {
     @State private var selectedItem: PhotosPickerItem? = nil
     @State private var selectedImageData: Data? = nil
@@ -16,55 +17,110 @@ struct PhotoPickView: View {
     
     var body: some View {
         NavigationStack {
-            
-            Text("사진을 편집해보아요")
-            
-            // 사진 불러오기 : 갤러리에 있는 사진 선택하기
-            PhotosPicker(selection: $selectedItem, matching: .images, photoLibrary: .shared()) {
-                // 버튼 디자인
-                    Text("사진 선택하기")
-                }
-                .onChange(of: selectedItem) { _, newItem in
-                    Task {
-                        if let data = try? await newItem?.loadTransferable(type: Data.self) {
-                            selectedImageData = data
-                            selectedImage = UIImage(data: selectedImageData!)
+            VStack {
+                Spacer()
+                Text("오늘 먹은 식사를 색다르게 남겨보세요!")
+                    .font(.title3)
+                    .fontWeight(.bold)
+                    .foregroundColor(.black)
+                
+                HStack {
+                    ZStack {
+                        Rectangle()
+                            .foregroundColor(.clear)
+                            .frame(width: 160, height: 250)
+                            .background(.white)
+                            .shadow(color: .black.opacity(0.15), radius: 7.5, x: 0, y: 2)
+                        
+                        if let selectedImage = selectedImage {
+                            Image(uiImage: selectedImage)
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+                                .frame(width: 140, height: 230)
+                                .clipped()
+                        } else {
+                            Text("?")
+                                .font(.system(size: 100))
+                                .foregroundColor(.gray)
                         }
                     }
+                    .frame(width: 130, height: 250)
                 }
-            
-            
-            // 사진 불러오기 : 카메라로 촬영하기
-            Button{
-                isImagePickerPresented = true
-            } label: {
-                // 버튼 디자인
-                Text("Open Camera")
-            }
-            .padding()
-            .sheet(isPresented: $isImagePickerPresented) {
-                ImagePicker(isPresented: $isImagePickerPresented, selectedImage: $selectedImage)
-            }
-            
-            // 불러온 사진이 있을 경우 보여주기
-            if let selectedImage {
-                Image(uiImage: selectedImage)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 300, height: 300)
-            
-                // 사진이 있을 경우 다음 페이지로 넘어가는 버튼 활성화
-                NavigationLink {
-                    FilterListView(selectedImage: selectedImage)
+                .padding()
+                Spacer()
+                
+                if selectedImage != nil {
+                    Text("이 사진으로 할까요?")
+                        .font(.body)
+                        .fontWeight(.bold)
+                        .multilineTextAlignment(.center)
+                        .foregroundColor(.black)
+                    
+                    Spacer()
+                    
+                    NavigationLink {
+                        FilterListView(selectedImage: selectedImage!)
+                    } label: {
+                        Text("필터 적용하기")
+                            .font(.body)
+                            .fontWeight(.bold)
+                            .foregroundColor(.white)
+                            .frame(width: 199, height: 68, alignment: .center)
+                            .background(Color(red: 0, green: 0.48, blue: 1))
+                            .cornerRadius(12)
+                    }
+                }
+                
+                Button {
+                    isImagePickerPresented = true
                 } label: {
-                    // 버튼 디자인
-                    Text("필터 적용하기")
+                    HStack(alignment: .center, spacing: 4) {
+                        Text("카메라 열기")
+                            .font(.body)
+                            .fontWeight(.bold)
+                            .foregroundColor(.white)
+                    }
+                    .padding(.horizontal, 20)
+                    .padding(.vertical, 14)
+                    .frame(width: 199, height: 68, alignment: .center)
+                    .background(Color(red: 0, green: 0.48, blue: 1))
+                    .cornerRadius(12)
                 }
-            } else {
-                Text("사진을 선택하세요")
+                
+                PhotosPicker(selection: Binding(get: {
+                    selectedItem
+                }, set: { newItem in
+                    selectedItem = newItem
+                    if let newItem = newItem {
+                        Task {
+                            do {
+                                let data = try await newItem.loadTransferable(type: Data.self)
+                                guard let data = data else {
+                                    print("No data found")
+                                    return
+                                }
+                                selectedImage = UIImage(data: data)
+                            } catch {
+                                print("Error loading image: \(error.localizedDescription)")
+                            }
+                        }
+                    }
+                }), matching: .images, photoLibrary: .shared()) {
+                    HStack(alignment: .center, spacing: 4) {
+                        Text("갤러리 열기")
+                            .font(.body)
+                            .fontWeight(.bold)
+                            .foregroundColor(.white)
+                    }
+                    .padding(.horizontal, 20)
+                    .padding(.vertical, 14)
+                    .frame(width: 198, height: 68, alignment: .center)
+                    .background(Color(red: 0, green: 0.48, blue: 1))
+                    .cornerRadius(12)
+                }
             }
+            .padding(40)
         }
-        
     }
 }
 
