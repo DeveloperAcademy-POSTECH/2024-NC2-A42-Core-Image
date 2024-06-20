@@ -14,38 +14,68 @@ struct SingleImageView: View {
     @Binding var filter: FilterModel
     var originalImage: UIImage
     @State var isFiltered = true
-    
     private let context = CIContext()
     
+    var cgImage: CGImage? {
+        guard
+            let outputImage = filter.filter.outputImage,
+            let cgImage = context.createCGImage(outputImage, from: outputImage.extent) else {
+            return nil
+        }
+        return cgImage
+    }
+    
     var body: some View {
-        Text(filter.title)
-        if let outputImage = filter.filter.outputImage, let cgImage = context.createCGImage(outputImage, from: outputImage.extent) {
-            if isFiltered {
-                Image(uiImage: UIImage(cgImage: cgImage))
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 350)
-            } else {
-                Image(uiImage: originalImage)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 350)
-            }
-            
-            Button {
-                UIImageWriteToSavedPhotosAlbum(UIImage(cgImage: cgImage), self, nil, nil);
-            } label: {
-                // 버튼 디자인
-                Text("Save to Album")
-            }
-            .padding()
-            
+        VStack {
             Button {
                 isFiltered.toggle()
             } label: {
-                Text("원본사진 보기 on/off")
+                ZStack(alignment: .bottomTrailing) {
+                    if let cgImage = cgImage {
+                        if isFiltered {
+                            imageView(UIImage(cgImage: cgImage)) // 필터 적용된 이미지
+                            layerIconView("square.2.layers.3d.top.filled") // 필터 적용 아이콘
+                        } else {
+                            imageView(originalImage) // 원본 이미지
+                            layerIconView("square.2.layers.3d.bottom.filled") // 원본 아이콘
+                        }
+                    }
+                }
+                
             }
+            
         }
+        .toolbar(content: {
+            Button {
+                if let cgImage {
+                    UIImageWriteToSavedPhotosAlbum(UIImage(cgImage: cgImage), self, nil, nil);
+                }
+            } label: {
+                // 버튼 디자인
+                Image(systemName: "square.and.arrow.down")
+            }
+        })
+        .navigationTitle(filter.title)
+    }
+    
+    // 사진 View
+    @ViewBuilder
+    func imageView(_ image: UIImage) -> some View {
+        Image(uiImage: image)
+            .resizable()
+            .scaledToFit()
+            .frame(width: 350)
+    }
+    
+    // 필터/원본 아이콘 View
+    @ViewBuilder
+    func layerIconView(_ type: String) -> some View {
+            Image(systemName: type)
+                .foregroundColor(.white)
+                .padding(10)
+                .background(.black.opacity(0.1))
+                .cornerRadius(10)
+                .padding(9)
     }
     
 }
