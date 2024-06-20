@@ -29,7 +29,7 @@ Core Image의 CIFilter를 사용해 이미지에 필터를 씌워보자!
 음식 사진을 재미있게 찍고, 편집하자!
 
 ## 🖼️ Prototype
-(프로토타입과 설명 추가)
+![프로토타입](https://github.com/DeveloperAcademy-POSTECH/2024-NC2-A42-Core-Image/assets/164469337/48ef45ce-912a-4e41-bf13-b6b29d0642bb)
 
 ## 🛠️ About Code
 필터 객체를 생성하고 이미지에 필터를 적용하는 방법 <br/>
