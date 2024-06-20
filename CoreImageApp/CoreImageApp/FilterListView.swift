@@ -160,11 +160,13 @@ struct FilterListView: View {
                                     .frame(width: 150)
                             }
                         }
+                        
                         // 일단 텍스트는 터치 영역에서 제외시켜두었음 ...
                         Text("\(filter.title)")
                     }
                 }
             }
+            .navigationTitle("필터 갤러리")
         }
         .onAppear {
             self.filterList = selectedImage.getfilterList()
