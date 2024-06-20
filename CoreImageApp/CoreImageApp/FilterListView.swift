@@ -58,7 +58,7 @@ extension UIImage {
             result.append(FilterModel(filter: photoeffecttonal, title: "photo effect tonal"))
         }
         
-          return result
+        return result
     }
     
     private func getSepiatone(_ image: UIImage) -> CIFilter? {
