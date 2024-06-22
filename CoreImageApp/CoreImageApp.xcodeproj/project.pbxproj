@@ -18,6 +18,7 @@
 		D60DEC0A2C21FD3F00FBB141 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60DEC092C21FD3F00FBB141 /* ImagePicker.swift */; };
 		D60DEC0C2C22027200FBB141 /* pudding.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D60DEC0B2C22027200FBB141 /* pudding.jpg */; };
 		D64F3FB22C244D2B00E07D65 /* RotateImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64F3FB12C244D2B00E07D65 /* RotateImage.swift */; };
+		D64F3FB42C2481C300E07D65 /* getFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64F3FB32C2481C300E07D65 /* getFilter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		D60DEC092C21FD3F00FBB141 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		D60DEC0B2C22027200FBB141 /* pudding.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pudding.jpg; sourceTree = "<group>"; };
 		D64F3FB12C244D2B00E07D65 /* RotateImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotateImage.swift; sourceTree = "<group>"; };
+		D64F3FB32C2481C300E07D65 /* getFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getFilter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 				D60DEBF72C21C6F300FBB141 /* ContentView.swift */,
 				D60DEC032C21C70C00FBB141 /* PhotoPickView.swift */,
 				D60DEC052C21C72300FBB141 /* FilterListView.swift */,
+				D64F3FB32C2481C300E07D65 /* getFilter.swift */,
 				D60DEC072C21C73500FBB141 /* SingleImageView.swift */,
 				D60DEC092C21FD3F00FBB141 /* ImagePicker.swift */,
 				D64F3FB12C244D2B00E07D65 /* RotateImage.swift */,
@@ -165,6 +168,7 @@
 				D60DEC0A2C21FD3F00FBB141 /* ImagePicker.swift in Sources */,
 				D60DEC042C21C70C00FBB141 /* PhotoPickView.swift in Sources */,
 				D60DEBF62C21C6F300FBB141 /* CoreImageAppApp.swift in Sources */,
+				D64F3FB42C2481C300E07D65 /* getFilter.swift in Sources */,
 				D64F3FB22C244D2B00E07D65 /* RotateImage.swift in Sources */,
 				A91FF6512C241C2A00941170 /* OnboardingView.swift in Sources */,
 			);

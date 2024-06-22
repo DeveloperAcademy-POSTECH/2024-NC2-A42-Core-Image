@@ -60,7 +60,7 @@ struct PhotoPickView: View {
             if let selectedImage = selectedImage {
                 Image(uiImage: selectedImage)
                     .resizable()
-                    .aspectRatio(contentMode: .fill)
+                    .scaledToFit()
                     .frame(width: 250, height: 350)
                     .clipped()
             } else {
